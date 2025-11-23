@@ -30,19 +30,12 @@ class GymSystem:
             return True
         return False
 
-    def delete_member(self, member_id):
-        if member_id in self.miembros:
-            del self.miembros[member_id]
-            return True
-        return False
-
 system = GymSystem()
 
 if __name__ == "__main__":
     print("Sistema Fit Zone RD iniciado")
     
-    #Prueba Final(delete)
+    #Prueba Update
     u1 = system.create_member("José Castillo", "809-555-0001", "2024-01-15")
-    print(f"Antes de borrar: {len(system.get_all_members())}")
-    system.delete_member(u1.id)
-    print(f"Despues de borrar: {len(system.get_all_members())}")
+    system.update_member(u1.id, nombre="Juan Actualizado")
+    print(f"Nombre nuevo: {system.get_member_by_id(u1.id).nombre}")
